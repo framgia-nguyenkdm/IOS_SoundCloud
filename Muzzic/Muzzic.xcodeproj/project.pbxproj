@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AF04D5B42A1EA81B4918CF9 /* Pods_Muzzic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593D7DC3B7B4AAD385CC59EB /* Pods_Muzzic.framework */; };
+		8DB929BD207B604000A12E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB929BC207B604000A12E40 /* AppDelegate.swift */; };
+		8DB929BF207B604000A12E40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB929BE207B604000A12E40 /* ViewController.swift */; };
+		8DB929C2207B604000A12E40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB929C0207B604000A12E40 /* Main.storyboard */; };
+		8DB929C4207B604000A12E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB929C3207B604000A12E40 /* Assets.xcassets */; };
+		8DB929C7207B604000A12E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB929C5207B604000A12E40 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1ABE7D0B654D91973F5CB59F /* Pods-Muzzic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muzzic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Muzzic/Pods-Muzzic.release.xcconfig"; sourceTree = "<group>"; };
+		593D7DC3B7B4AAD385CC59EB /* Pods_Muzzic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Muzzic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DB929B9207B604000A12E40 /* Muzzic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muzzic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DB929BC207B604000A12E40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8DB929BE207B604000A12E40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8DB929C1207B604000A12E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DB929C3207B604000A12E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DB929C6207B604000A12E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DB929C8207B604000A12E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD973DCE2771F82E274592F2 /* Pods-Muzzic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muzzic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muzzic/Pods-Muzzic.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DB929B6207B604000A12E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AF04D5B42A1EA81B4918CF9 /* Pods_Muzzic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F76097FEC03B531483A820E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				593D7DC3B7B4AAD385CC59EB /* Pods_Muzzic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DB929B0207B604000A12E40 = {
+			isa = PBXGroup;
+			children = (
+				8DB929BB207B604000A12E40 /* Muzzic */,
+				8DB929BA207B604000A12E40 /* Products */,
+				8E768F1ACC59E714E465403E /* Pods */,
+				3F76097FEC03B531483A820E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8DB929BA207B604000A12E40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DB929B9207B604000A12E40 /* Muzzic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DB929BB207B604000A12E40 /* Muzzic */ = {
+			isa = PBXGroup;
+			children = (
+				8DB929BC207B604000A12E40 /* AppDelegate.swift */,
+				8DB929BE207B604000A12E40 /* ViewController.swift */,
+				8DB929C0207B604000A12E40 /* Main.storyboard */,
+				8DB929C3207B604000A12E40 /* Assets.xcassets */,
+				8DB929C5207B604000A12E40 /* LaunchScreen.storyboard */,
+				8DB929C8207B604000A12E40 /* Info.plist */,
+			);
+			path = Muzzic;
+			sourceTree = "<group>";
+		};
+		8E768F1ACC59E714E465403E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD973DCE2771F82E274592F2 /* Pods-Muzzic.debug.xcconfig */,
+				1ABE7D0B654D91973F5CB59F /* Pods-Muzzic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DB929B8207B604000A12E40 /* Muzzic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DB929CB207B604000A12E40 /* Build configuration list for PBXNativeTarget "Muzzic" */;
+			buildPhases = (
+				2297B2E1D3DB5474B2B2721A /* [CP] Check Pods Manifest.lock */,
+				8DB929B5207B604000A12E40 /* Sources */,
+				8DB929B6207B604000A12E40 /* Frameworks */,
+				8DB929B7207B604000A12E40 /* Resources */,
+				0A332374864F43BC7134BBBD /* [CP] Embed Pods Frameworks */,
+				CECE51BB010208AD57844BC9 /* [CP] Copy Pods Resources */,
+				8DB929CE207B661D00A12E40 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Muzzic;
+			productName = Muzzic;
+			productReference = 8DB929B9207B604000A12E40 /* Muzzic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DB929B1207B604000A12E40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = khuc.d.m.nguyen;
+				TargetAttributes = {
+					8DB929B8207B604000A12E40 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8DB929B4207B604000A12E40 /* Build configuration list for PBXProject "Muzzic" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DB929B0207B604000A12E40;
+			productRefGroup = 8DB929BA207B604000A12E40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DB929B8207B604000A12E40 /* Muzzic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DB929B7207B604000A12E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DB929C7207B604000A12E40 /* LaunchScreen.storyboard in Resources */,
+				8DB929C4207B604000A12E40 /* Assets.xcassets in Resources */,
+				8DB929C2207B604000A12E40 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A332374864F43BC7134BBBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Muzzic/Pods-Muzzic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2297B2E1D3DB5474B2B2721A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Muzzic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DB929CE207B661D00A12E40 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		CECE51BB010208AD57844BC9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Muzzic/Pods-Muzzic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DB929B5207B604000A12E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DB929BF207B604000A12E40 /* ViewController.swift in Sources */,
+				8DB929BD207B604000A12E40 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8DB929C0207B604000A12E40 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DB929C1207B604000A12E40 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8DB929C5207B604000A12E40 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DB929C6207B604000A12E40 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DB929C9207B604000A12E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8DB929CA207B604000A12E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DB929CC207B604000A12E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD973DCE2771F82E274592F2 /* Pods-Muzzic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Muzzic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = framgia.Muzzic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DB929CD207B604000A12E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ABE7D0B654D91973F5CB59F /* Pods-Muzzic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Muzzic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = framgia.Muzzic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DB929B4207B604000A12E40 /* Build configuration list for PBXProject "Muzzic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DB929C9207B604000A12E40 /* Debug */,
+				8DB929CA207B604000A12E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DB929CB207B604000A12E40 /* Build configuration list for PBXNativeTarget "Muzzic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DB929CC207B604000A12E40 /* Debug */,
+				8DB929CD207B604000A12E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DB929B1207B604000A12E40 /* Project object */;
+}
