@@ -1,5 +1,4 @@
 disabled_rules: # rule identifiers to exclude from running
-  - trailing_whitespace
 opt_in_rules: # some rules are only opt-in
   - control_statement
   - empty_count
@@ -22,7 +21,7 @@ function_body_length:
   warning: 50
   error: 60
 
-line_length: 160
+line_length: 120
 
 identifier_name:
   excluded: # excluded via string array
