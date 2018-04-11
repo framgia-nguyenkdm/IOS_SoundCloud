@@ -6,5 +6,7 @@ target 'Muzzic' do
   use_frameworks!
 
 pod 'SwiftLint'
-
+pod 'ObjectMapper'
+pod 'Alamofire'
+pod 'PKHUD'
 end
