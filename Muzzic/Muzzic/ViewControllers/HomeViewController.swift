@@ -15,12 +15,32 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var ambientCollectionView: UICollectionView!
     @IBOutlet weak var classicalCollectionView: UICollectionView!
     @IBOutlet weak var countryCollectionView: UICollectionView!
+
+    var dataSource: SongDataSource!
+    var rockMusics = [GetSongOutput]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchMusics()
+        configCollectionView()
     }
-
+    func configCollectionView() {
+        self.rockCollectionView
+            .register(UINib(nibName: "SongCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
+    }
+    func fetchMusics() {
+        SongRespositoryImpl.sharedInstance.getSongByGenre(genre: "rock") { (result) in
+            switch result {
+            case .success(let output):
+                if let data = output {
+                    self.rockMusics = data
+                    self.dataSource = SongDataSource(items: self.rockMusics)
+                    self.rockCollectionView.dataSource = self.dataSource
+                }
+            case .failure(let error):
+                print(error?.description ?? "")
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
