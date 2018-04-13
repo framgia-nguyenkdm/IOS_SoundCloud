@@ -13,17 +13,16 @@ class Song: NSObject, Mappable {
     var name = ""
     var image = ""
     var singer = ""
+    var imageLink = ""
     var genre = ""
     var stream = ""
     init(songID: Int, name: String, image: String, singer: String, genre: String) {
-
         self.songID = songID
         self.name = name
         self.image = image
         self.singer = singer
         self.genre = genre
     }
-
     required init?(map: Map) {
         super.init()
         mapping(map: map)
@@ -34,6 +33,7 @@ class Song: NSObject, Mappable {
         image <- map["user.avatar_url"]
         genre <- map["genre"]
         stream <- map["stream_url"]
-        singer <- map[""]
+        singer <- map["user.username"]
+        imageLink <- map["user.avatar_url"]
     }
 }

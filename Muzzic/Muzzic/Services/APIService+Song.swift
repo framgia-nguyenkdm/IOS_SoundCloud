@@ -23,21 +23,54 @@ class GetSongInput: APIInputBase {
                    parameters: params,
                    requestType: .get)
     }
+
+    init(pageWith genre: String) {
+        let params: [String: Any] = [
+            "client_id": UserProfile.myClientID,
+            "order": "hotness",
+            "genre": genre,
+            "limit": 21,
+            "linked_partitioning": 1
+        ]
+        super.init(urlString: APIUrls.getMusic,
+                   parameters: params,
+                   requestType: .get)
+    }
 }
-class GetSongOutput: Mappable {
-    var songID = 0
-    var name = ""
-    var image = ""
-    var singer = ""
-    var genre = ""
-    var stream = ""
+
+class GetListSongOutput: Mappable {
+    var nextPage = ""
+    var collections = [Song]()
+
     required init?(map: Map) {
         mapping(map: map)
     }
+
     func mapping(map: Map) {
+
+        nextPage <- map["next_href"]
+        collections <- map["collection"]
+    }
+}
+
+class GetSongOutput: Mappable {
+    var songID = 0
+    var name = ""
+    var imageLink = ""
+    var singer = ""
+    var genre = ""
+    var stream = ""
+
+    required init?(map: Map) {
+
+        mapping(map: map)
+    }
+
+    func mapping(map: Map) {
+
         songID <- map["id"]
         name <- map["title"]
-        image <- map["user.avatar_url"]
+        imageLink <- map["user.avatar_url"]
         genre <- map["genre"]
         stream <- map["stream_url"]
         singer <- map["user.username"]

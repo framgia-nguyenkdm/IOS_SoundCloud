@@ -25,7 +25,7 @@ public class SongDataSource: NSObject, UICollectionViewDataSource {
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? SongCollectionViewCell
-
+        cell?.songImg.loadImgFrom(urlLink: items[indexPath.row].imageLink)
         cell?.songNameLabel.text = items[indexPath.row].name
         cell?.singerLabel.text = items[indexPath.row].singer
         return cell!

@@ -33,12 +33,12 @@ enum HomeTabBarItem {
         }
     }
 
-    var controller: UIViewController {
+    var controller: UINavigationController {
         switch self {
         case .home:
-            return (UIStoryboard.home().instantiateInitialViewController() as? HomeViewController)!
+            return (UIStoryboard.home().instantiateInitialViewController() as? UINavigationController)!
         case .playList:
-            return (UIStoryboard.playlist().instantiateInitialViewController() as? PlaylistViewController)!
+            return (UIStoryboard.playlist().instantiateInitialViewController() as? UINavigationController)!
         }
     }
 

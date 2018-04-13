@@ -22,6 +22,13 @@ class APIInputBase {
     var parameters: [String: Any]?
 
     var description: String {
+        guard parameters != nil else {
+            return [
+                "🌎 \(requestType.rawValue) \(urlString)",
+                "Parameters: Empty)"
+                ].joined(separator: "\n")
+        }
+
         return [
             "🌎 \(requestType.rawValue) \(urlString)",
             "Parameters: \(String(describing: parameters))"
@@ -37,8 +44,13 @@ class APIInputBase {
 }
 
 // MARK: - Base Output
-enum APIOutputBase<T: Mappable> {
+enum APIOutputListBase<T: Mappable> {
     case success([T]?)
+    case failure(error: APIError?)
+}
+
+enum APIOutputBase<T: Mappable> {
+    case success(T?)
     case failure(error: APIError?)
 }
 

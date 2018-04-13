@@ -29,6 +29,10 @@
 		8DB929BD207B604000A12E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB929BC207B604000A12E40 /* AppDelegate.swift */; };
 		8DB929C4207B604000A12E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB929C3207B604000A12E40 /* Assets.xcassets */; };
 		8DB929C7207B604000A12E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB929C5207B604000A12E40 /* LaunchScreen.storyboard */; };
+		8DBC51F4207F152200C36806 /* UIimageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51F3207F152200C36806 /* UIimageView+.swift */; };
+		8DBC51F6207F19D300C36806 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51F5207F19D300C36806 /* GenreViewController.swift */; };
+		8DBC51FA207F56D200C36806 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51F9207F56D200C36806 /* Genres.swift */; };
+		8DBC51FC207F587600C36806 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51FB207F587600C36806 /* Segues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,10 @@
 		8DB929C3207B604000A12E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DB929C6207B604000A12E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DB929C8207B604000A12E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DBC51F3207F152200C36806 /* UIimageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimageView+.swift"; sourceTree = "<group>"; };
+		8DBC51F5207F19D300C36806 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		8DBC51F9207F56D200C36806 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		8DBC51FB207F587600C36806 /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		AD973DCE2771F82E274592F2 /* Pods-Muzzic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muzzic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muzzic/Pods-Muzzic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				8D3D77F0207C548D00B7DA69 /* Storyboards.swift */,
+				8DBC51F3207F152200C36806 /* UIimageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -121,6 +130,7 @@
 				8D3D77E9207C4C0000B7DA69 /* HomeTabBarController.swift */,
 				8D3D77F6207C590C00B7DA69 /* PlaylistViewController.swift */,
 				8D3D77F8207C591E00B7DA69 /* HomeViewController.swift */,
+				8DBC51F5207F19D300C36806 /* GenreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				8D05634F207DFE9F002CE08D /* UserProfile.swift */,
+				8DBC51F9207F56D200C36806 /* Genres.swift */,
+				8DBC51FB207F587600C36806 /* Segues.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -370,11 +382,15 @@
 				8D3D7822207CC02100B7DA69 /* Song.swift in Sources */,
 				8D056350207DFE9F002CE08D /* UserProfile.swift in Sources */,
 				8D056344207DEA58002CE08D /* SongDataSource.swift in Sources */,
+				8DBC51F4207F152200C36806 /* UIimageView+.swift in Sources */,
 				8D3D77F9207C591E00B7DA69 /* HomeViewController.swift in Sources */,
 				8D3D77F1207C548D00B7DA69 /* Storyboards.swift in Sources */,
+				8DBC51FC207F587600C36806 /* Segues.swift in Sources */,
 				8D3D77F7207C590C00B7DA69 /* PlaylistViewController.swift in Sources */,
 				8D056346207DF98A002CE08D /* APIUrls.swift in Sources */,
+				8DBC51FA207F56D200C36806 /* Genres.swift in Sources */,
 				8D056348207DFA16002CE08D /* APIService.swift in Sources */,
+				8DBC51F6207F19D300C36806 /* GenreViewController.swift in Sources */,
 				8D05634A207DFAF6002CE08D /* APIBase.swift in Sources */,
 				8D3D781F207CBD9C00B7DA69 /* SongCollectionViewCell.swift in Sources */,
 				8D3D77EA207C4C0000B7DA69 /* HomeTabBarController.swift in Sources */,

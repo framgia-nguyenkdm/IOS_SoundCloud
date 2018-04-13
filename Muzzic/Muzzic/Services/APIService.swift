@@ -20,6 +20,36 @@ class APIService {
         manager = Alamofire.SessionManager(configuration: config)
     }
 
+    func request<T: Mappable>(input: APIInputBase, completion: @escaping (_ value: T?, _ error: APIError?) -> Void) {
+        print(input.description)
+        manager.request(input.urlString,
+                        method: input.requestType,
+                        parameters: input.parameters,
+                        encoding: input.encoding,
+                        headers: input.headers)
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    if let statusCode = response.response?.statusCode {
+                        if statusCode == 200 {
+                            let object = Mapper<T>().map(JSONObject: value)
+                            completion(object, nil)
+                        } else {
+                            if let error = Mapper<ResponseMessage>().map(JSONObject: value) {
+                                completion(nil, APIError.serverError(error: error))
+                            } else {
+                                completion(nil, APIError.httpError(httpCode: statusCode))
+                            }
+                        }
+                    } else {
+                        completion(nil, APIError.unexpectedErr)
+                    }
+                case .failure(let error):
+                    completion(nil, error as? APIError)
+                }
+        }
+    }
+
     func request<T: Mappable>(input: APIInputBase, completion: @escaping (_ value: [T]?, _ error: APIError?) -> Void) {
         print(input.description)
 
