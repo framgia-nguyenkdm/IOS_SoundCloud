@@ -9,4 +9,5 @@
 import Foundation
 class Segue {
     static let showGenreScreen = "showGenreList"
+    static let showSearch = "showSearch"
 }

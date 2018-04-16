@@ -398,16 +398,29 @@
                                                     <constraint firstItem="O7z-OZ-x5G" firstAttribute="top" secondItem="zXp-8L-2aG" secondAttribute="top" id="xL0-zQ-5sC"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWc-2C-0qJ">
+                                                <rect key="frame" x="0.0" y="8" width="40" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="bEa-Ia-Ael"/>
+                                                    <constraint firstAttribute="width" constant="40" id="h6s-jO-5B7"/>
+                                                </constraints>
+                                                <state key="normal" image="icon_search"/>
+                                                <connections>
+                                                    <action selector="tapSearch:" destination="fgz-Li-XdD" eventType="touchUpInside" id="Rej-xC-43Y"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="j9e-fF-ipI" secondAttribute="trailing" id="Awg-kA-BAL"/>
                                             <constraint firstItem="zXp-8L-2aG" firstAttribute="leading" secondItem="mLE-D0-M86" secondAttribute="leading" id="CGq-4N-BXd"/>
+                                            <constraint firstItem="IWc-2C-0qJ" firstAttribute="top" secondItem="mLE-D0-M86" secondAttribute="top" constant="8" id="GdH-hy-jAs"/>
                                             <constraint firstItem="LbH-UH-3b2" firstAttribute="top" secondItem="FDi-Tp-Wew" secondAttribute="bottom" constant="4" id="JKy-Ej-a9a"/>
                                             <constraint firstItem="Ov9-LW-bXi" firstAttribute="top" secondItem="j9e-fF-ipI" secondAttribute="bottom" constant="4" id="LdX-Vl-yGG"/>
                                             <constraint firstItem="j9e-fF-ipI" firstAttribute="top" secondItem="LbH-UH-3b2" secondAttribute="bottom" constant="4" id="Nra-4W-iTl"/>
                                             <constraint firstItem="LbH-UH-3b2" firstAttribute="leading" secondItem="mLE-D0-M86" secondAttribute="leading" id="QRA-h5-AZa"/>
                                             <constraint firstAttribute="trailing" secondItem="qhU-Rb-ctC" secondAttribute="trailing" id="QvM-3E-Dbx"/>
+                                            <constraint firstItem="IWc-2C-0qJ" firstAttribute="leading" secondItem="mLE-D0-M86" secondAttribute="leading" id="Xqb-79-vHM"/>
                                             <constraint firstItem="coI-rJ-hPq" firstAttribute="top" secondItem="mLE-D0-M86" secondAttribute="top" constant="8" id="aOm-fO-aXc"/>
                                             <constraint firstItem="qhU-Rb-ctC" firstAttribute="leading" secondItem="mLE-D0-M86" secondAttribute="leading" id="d77-6l-maO"/>
                                             <constraint firstAttribute="trailing" secondItem="ciQ-4V-mTa" secondAttribute="trailing" id="dGT-a1-Uh5"/>
@@ -456,16 +469,45 @@
                         <outlet property="musicCollectionView" destination="wj6-rp-caZ" id="rIg-hi-vbJ"/>
                         <outlet property="rockCollectionView" destination="jCP-5q-zo2" id="ugJ-ih-3wY"/>
                         <segue destination="5un-or-7xc" kind="show" identifier="showGenreList" id="9h2-mQ-Bnk"/>
+                        <segue destination="Jpx-VE-NFU" kind="show" identifier="showSearch" id="N6V-7V-6TY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oF6-0O-OYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764" y="79.160419790104953"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="fgo-ML-Zce">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="Jpx-VE-NFU" customClass="SearchViewController" customModule="Muzzic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AA6-6V-qH4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="1fC-Lq-0Sp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1fC-Lq-0Sp" id="uqD-YP-cGK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Jpx-VE-NFU" id="uPO-E7-JAy"/>
+                            <outlet property="delegate" destination="Jpx-VE-NFU" id="oFO-4H-Vaq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUH-ER-QN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1710" y="-430"/>
+        </scene>
         <!--Genre View Controller-->
         <scene sceneID="oKq-iM-UOL">
             <objects>
-                <viewController id="5un-or-7xc" customClass="GenreViewController" customModule="Muzzic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="5un-or-7xc" customClass="GenreViewController" customModule="Muzzic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5kE-vH-CxC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -510,7 +552,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifh-ge-60d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639.2" y="-430.43478260869568"/>
+            <point key="canvasLocation" x="1710" y="435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r2g-7P-8Kg">
@@ -532,6 +574,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_search" width="26" height="26"/>
         <image name="img_background" width="912" height="606"/>
     </resources>
 </document>

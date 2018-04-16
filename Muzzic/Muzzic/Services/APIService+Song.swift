@@ -29,18 +29,38 @@ class GetSongInput: APIInputBase {
             "client_id": UserProfile.myClientID,
             "order": "hotness",
             "genre": genre,
-            "limit": 21,
+            "limit": 30,
             "linked_partitioning": 1
         ]
         super.init(urlString: APIUrls.getMusic,
                    parameters: params,
                    requestType: .get)
     }
+
+    init(searchStr: String) {
+        let params: [String: Any] = [
+            "client_id": UserProfile.myClientID,
+            "q": searchStr,
+             "limit": 30
+        ]
+        super.init(urlString: APIUrls.getMusic,
+                   parameters: params,
+                   requestType: .get)
+    }
+
+    init(urlLink: String) {
+        super.init(urlString: urlLink,
+                   parameters: nil,
+                   requestType: .get)
+    }
 }
 
 class GetListSongOutput: Mappable {
-    var nextPage = ""
+    var nextPage: String?
     var collections = [Song]()
+
+    public init?() {
+    }
 
     required init?(map: Map) {
         mapping(map: map)

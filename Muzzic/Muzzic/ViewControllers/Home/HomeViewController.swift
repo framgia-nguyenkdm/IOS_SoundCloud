@@ -45,28 +45,32 @@ class HomeViewController: UIViewController {
     // MARK: - Actions
     @IBAction func tapSeeMusic(_ sender: Any) {
         genre = Genre.music
-        self.performSegue(withIdentifier: "showGenreList", sender: nil)
+        self.performSegue(withIdentifier: Segue.showGenreScreen, sender: nil)
     }
     @IBAction func tapSeeAudio(_ sender: Any) {
         genre = Genre.audio
-        self.performSegue(withIdentifier: "showGenreList", sender: nil)
+        self.performSegue(withIdentifier: Segue.showGenreScreen, sender: nil)
     }
     @IBAction func tapSeeRock(_ sender: Any) {
         genre = Genre.rock
-        self.performSegue(withIdentifier: "showGenreList", sender: nil)
+        self.performSegue(withIdentifier: Segue.showGenreScreen, sender: nil)
     }
     @IBAction func tapSeeAmbient(_ sender: Any) {
         genre = Genre.ambient
-        self.performSegue(withIdentifier: "showGenreList", sender: nil)
+        self.performSegue(withIdentifier: Segue.showGenreScreen, sender: nil)
     }
     @IBAction func tapSeeClassical(_ sender: Any) {
         genre = Genre.classical
-        self.performSegue(withIdentifier: "showGenreList", sender: nil)
+        self.performSegue(withIdentifier: Segue.showGenreScreen, sender: nil)
     }
     @IBAction func tapSeeCountry(_ sender: Any) {
         genre = Genre.country
-        self.performSegue(withIdentifier: "showGenreList", sender: nil)
+        self.performSegue(withIdentifier: Segue.showGenreScreen, sender: nil)
     }
+    @IBAction func tapSearch(_ sender: Any) {
+        self.performSegue(withIdentifier: Segue.showSearch, sender: nil)
+    }
+
     // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segue.showGenreScreen, let vc = segue.destination as? GenreViewController {
@@ -76,7 +80,7 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController {
     // MARK: - Config nib for custom Cell
-    func configCollectionView() {
+    fileprivate func configCollectionView() {
         let customCellName = UINib(nibName: "SongCollectionViewCell", bundle: nil)
         self.musicCollectionView
             .register(customCellName, forCellWithReuseIdentifier: "CustomCell")
@@ -107,7 +111,7 @@ extension HomeViewController {
             case .success(let output):
                 if let data = output {
                     DispatchQueue.main.async {
-                        self.musicDataSource = SongDataSource(items: data)
+                        self.musicDataSource = SongDataSource(items: data.collections)
                         self.musicCollectionView.dataSource = self.musicDataSource
                     }
                 }
@@ -124,7 +128,7 @@ extension HomeViewController {
                 case .success(let output):
                     if let data = output {
                         DispatchQueue.main.async {
-                            self.audioDataSource = SongDataSource(items: data)
+                            self.audioDataSource = SongDataSource(items: data.collections)
                             self.audioCollectionView.dataSource = self.audioDataSource
                         }
                     }
@@ -141,7 +145,7 @@ extension HomeViewController {
             case .success(let output):
                 if let data = output {
                     DispatchQueue.main.async {
-                        self.rockDataSource = SongDataSource(items: data)
+                        self.rockDataSource = SongDataSource(items: data.collections)
                         self.rockCollectionView.dataSource = self.rockDataSource
                     }
                 }
@@ -157,7 +161,7 @@ extension HomeViewController {
             case .success(let output):
                 if let data = output {
                     DispatchQueue.main.async {
-                        self.ambientDataSource = SongDataSource(items: data)
+                        self.ambientDataSource = SongDataSource(items: data.collections)
                         self.ambientCollectionView.dataSource = self.ambientDataSource
                     }
                 }
@@ -173,7 +177,7 @@ extension HomeViewController {
             case .success(let output):
                 if let data = output {
                     DispatchQueue.main.async {
-                        self.classicalDataSource = SongDataSource(items: data)
+                        self.classicalDataSource = SongDataSource(items: data.collections)
                         self.classicalCollectionView.dataSource = self.classicalDataSource
                     }
                 }
@@ -189,7 +193,7 @@ extension HomeViewController {
             case .success(let output):
                 if let data = output {
                     DispatchQueue.main.async {
-                        self.countryDataSource = SongDataSource(items: data)
+                        self.countryDataSource = SongDataSource(items: data.collections)
                         self.countryCollectionView.dataSource = self.countryDataSource
                     }
                 }

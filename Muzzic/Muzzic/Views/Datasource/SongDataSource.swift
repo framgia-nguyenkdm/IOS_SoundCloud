@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 public class SongDataSource: NSObject, UICollectionViewDataSource {
-    var items: [GetSongOutput]
+    var items: [Song]
 
-    init(items: [GetSongOutput]!) {
+    init(items: [Song]!) {
         self.items = items
         super.init()
     }

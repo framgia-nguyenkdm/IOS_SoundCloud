@@ -33,6 +33,10 @@
 		8DBC51F6207F19D300C36806 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51F5207F19D300C36806 /* GenreViewController.swift */; };
 		8DBC51FA207F56D200C36806 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51F9207F56D200C36806 /* Genres.swift */; };
 		8DBC51FC207F587600C36806 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBC51FB207F587600C36806 /* Segues.swift */; };
+		8DD942BD208086F00031534A /* LoadMoreActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD942BC208086F00031534A /* LoadMoreActivityIndicator.swift */; };
+		8DE996D520844994007529C5 /* SongCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE996D320844994007529C5 /* SongCustomViewCell.swift */; };
+		8DE996D620844994007529C5 /* SongCustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE996D420844994007529C5 /* SongCustomViewCell.xib */; };
+		8DFADE8C2080B47500179741 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFADE8B2080B47500179741 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		8DBC51F5207F19D300C36806 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		8DBC51F9207F56D200C36806 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		8DBC51FB207F587600C36806 /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		8DD942BC208086F00031534A /* LoadMoreActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreActivityIndicator.swift; sourceTree = "<group>"; };
+		8DE996D320844994007529C5 /* SongCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCustomViewCell.swift; sourceTree = "<group>"; };
+		8DE996D420844994007529C5 /* SongCustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCustomViewCell.xib; sourceTree = "<group>"; };
+		8DFADE8B2080B47500179741 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AD973DCE2771F82E274592F2 /* Pods-Muzzic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muzzic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muzzic/Pods-Muzzic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,10 +135,9 @@
 		8D3D77EF207C541500B7DA69 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8DE996D220843397007529C5 /* Home */,
 				8D3D77E9207C4C0000B7DA69 /* HomeTabBarController.swift */,
 				8D3D77F6207C590C00B7DA69 /* PlaylistViewController.swift */,
-				8D3D77F8207C591E00B7DA69 /* HomeViewController.swift */,
-				8DBC51F5207F19D300C36806 /* GenreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -156,6 +163,7 @@
 		8D3D781A207CBD4500B7DA69 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DD942BB208086BF0031534A /* LoadMore */,
 				8D056342207DEA46002CE08D /* Datasource */,
 				8D3D781B207CBD5000B7DA69 /* Cell */,
 			);
@@ -167,6 +175,8 @@
 			children = (
 				8D3D781D207CBD9C00B7DA69 /* SongCollectionViewCell.swift */,
 				8D3D781E207CBD9C00B7DA69 /* SongCollectionViewCell.xib */,
+				8DE996D320844994007529C5 /* SongCustomViewCell.swift */,
+				8DE996D420844994007529C5 /* SongCustomViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -217,6 +227,24 @@
 				8DB929C8207B604000A12E40 /* Info.plist */,
 			);
 			path = Muzzic;
+			sourceTree = "<group>";
+		};
+		8DD942BB208086BF0031534A /* LoadMore */ = {
+			isa = PBXGroup;
+			children = (
+				8DD942BC208086F00031534A /* LoadMoreActivityIndicator.swift */,
+			);
+			path = LoadMore;
+			sourceTree = "<group>";
+		};
+		8DE996D220843397007529C5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8D3D77F8207C591E00B7DA69 /* HomeViewController.swift */,
+				8DBC51F5207F19D300C36806 /* GenreViewController.swift */,
+				8DFADE8B2080B47500179741 /* SearchViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		8E768F1ACC59E714E465403E /* Pods */ = {
@@ -297,6 +325,7 @@
 				8D3D77F3207C553700B7DA69 /* Playlist.storyboard in Resources */,
 				8D3D77EC207C53BA00B7DA69 /* Home.storyboard in Resources */,
 				8D3D7820207CBD9C00B7DA69 /* SongCollectionViewCell.xib in Resources */,
+				8DE996D620844994007529C5 /* SongCustomViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +410,7 @@
 				8D05634C207DFB1B002CE08D /* ResponseMessage.swift in Sources */,
 				8D3D7822207CC02100B7DA69 /* Song.swift in Sources */,
 				8D056350207DFE9F002CE08D /* UserProfile.swift in Sources */,
+				8DD942BD208086F00031534A /* LoadMoreActivityIndicator.swift in Sources */,
 				8D056344207DEA58002CE08D /* SongDataSource.swift in Sources */,
 				8DBC51F4207F152200C36806 /* UIimageView+.swift in Sources */,
 				8D3D77F9207C591E00B7DA69 /* HomeViewController.swift in Sources */,
@@ -392,10 +422,12 @@
 				8D056348207DFA16002CE08D /* APIService.swift in Sources */,
 				8DBC51F6207F19D300C36806 /* GenreViewController.swift in Sources */,
 				8D05634A207DFAF6002CE08D /* APIBase.swift in Sources */,
+				8DFADE8C2080B47500179741 /* SearchViewController.swift in Sources */,
 				8D3D781F207CBD9C00B7DA69 /* SongCollectionViewCell.swift in Sources */,
 				8D3D77EA207C4C0000B7DA69 /* HomeTabBarController.swift in Sources */,
 				8D05634E207DFBE1002CE08D /* APIService+Song.swift in Sources */,
 				8D056353207E04AE002CE08D /* SongRespository.swift in Sources */,
+				8DE996D520844994007529C5 /* SongCustomViewCell.swift in Sources */,
 				8DB929BD207B604000A12E40 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

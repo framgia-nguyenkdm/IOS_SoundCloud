@@ -22,16 +22,16 @@ class APIInputBase {
     var parameters: [String: Any]?
 
     var description: String {
-        guard parameters != nil else {
+        guard let params = parameters else {
             return [
                 "🌎 \(requestType.rawValue) \(urlString)",
-                "Parameters: Empty)"
+                "Parameters: Empty"
                 ].joined(separator: "\n")
         }
 
         return [
             "🌎 \(requestType.rawValue) \(urlString)",
-            "Parameters: \(String(describing: parameters))"
+            "Parameters: \(String(describing: params))"
             ].joined(separator: "\n")
     }
 

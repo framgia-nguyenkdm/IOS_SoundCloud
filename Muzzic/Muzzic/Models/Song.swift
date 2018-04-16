@@ -16,12 +16,14 @@ class Song: NSObject, Mappable {
     var imageLink = ""
     var genre = ""
     var stream = ""
-    init(songID: Int, name: String, image: String, singer: String, genre: String) {
+    init(songID: Int, name: String, image: String, singer: String, genre: String, imageLink: String, stream: String) {
         self.songID = songID
         self.name = name
         self.image = image
         self.singer = singer
         self.genre = genre
+        self.imageLink = imageLink
+        self.stream = stream
     }
     required init?(map: Map) {
         super.init()
