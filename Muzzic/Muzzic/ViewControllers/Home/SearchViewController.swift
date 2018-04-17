@@ -49,6 +49,13 @@ class SearchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newViewController = PlayerViewController(nibName: "PlayerViewController", bundle: nil)
+        newViewController.trackIndex = indexPath.row
+        newViewController.songs = songs
+        self.present(newViewController, animated: true, completion: nil)
+    }
 }
 extension SearchViewController {
     fileprivate func configNaviBar() {
@@ -74,8 +81,8 @@ extension SearchViewController: UISearchBarDelegate {
                 case .success(let output):
                     if let data = output {
                         self.songs = data.collections
+                        print(self.songs.count)
                         DispatchQueue.main.async {
-                            print(self.songs.count)
                             self.tableView.reloadData()
                         }
                     }

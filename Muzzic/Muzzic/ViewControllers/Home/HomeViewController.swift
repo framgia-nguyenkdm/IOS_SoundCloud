@@ -23,6 +23,13 @@ class HomeViewController: UIViewController {
     var classicalDataSource: SongDataSource!
     var countryDataSource: SongDataSource!
 
+    var musicArr: [Song]?
+    var audioArr: [Song]?
+    var rockArr: [Song]?
+    var ambientArr: [Song]?
+    var classicalArr: [Song]?
+    var countryArr: [Song]?
+
     var genre = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,10 +117,9 @@ extension HomeViewController {
             switch result {
             case .success(let output):
                 if let data = output {
-                    DispatchQueue.main.async {
-                        self.musicDataSource = SongDataSource(items: data.collections)
-                        self.musicCollectionView.dataSource = self.musicDataSource
-                    }
+                    self.musicArr = data.collections
+                    self.musicDataSource = SongDataSource(items: data.collections)
+                    self.musicCollectionView.dataSource = self.musicDataSource
                 }
             case .failure(let error):
                 print(error?.description ?? "")
@@ -127,10 +133,9 @@ extension HomeViewController {
                 switch result {
                 case .success(let output):
                     if let data = output {
-                        DispatchQueue.main.async {
-                            self.audioDataSource = SongDataSource(items: data.collections)
-                            self.audioCollectionView.dataSource = self.audioDataSource
-                        }
+                        self.audioArr = data.collections
+                        self.audioDataSource = SongDataSource(items: data.collections)
+                        self.audioCollectionView.dataSource = self.audioDataSource
                     }
                 case .failure(let error):
                     print(error?.description ?? "")
@@ -144,10 +149,9 @@ extension HomeViewController {
             switch result {
             case .success(let output):
                 if let data = output {
-                    DispatchQueue.main.async {
-                        self.rockDataSource = SongDataSource(items: data.collections)
-                        self.rockCollectionView.dataSource = self.rockDataSource
-                    }
+                    self.rockArr = data.collections
+                    self.rockDataSource = SongDataSource(items: data.collections)
+                    self.rockCollectionView.dataSource = self.rockDataSource
                 }
             case .failure(let error):
                 print(error?.description ?? "")
@@ -160,10 +164,9 @@ extension HomeViewController {
             switch result {
             case .success(let output):
                 if let data = output {
-                    DispatchQueue.main.async {
-                        self.ambientDataSource = SongDataSource(items: data.collections)
-                        self.ambientCollectionView.dataSource = self.ambientDataSource
-                    }
+                    self.ambientArr = data.collections
+                    self.ambientDataSource = SongDataSource(items: data.collections)
+                    self.ambientCollectionView.dataSource = self.ambientDataSource
                 }
             case .failure(let error):
                 print(error?.description ?? "")
@@ -176,10 +179,9 @@ extension HomeViewController {
             switch result {
             case .success(let output):
                 if let data = output {
-                    DispatchQueue.main.async {
-                        self.classicalDataSource = SongDataSource(items: data.collections)
-                        self.classicalCollectionView.dataSource = self.classicalDataSource
-                    }
+                    self.classicalArr = data.collections
+                    self.classicalDataSource = SongDataSource(items: data.collections)
+                    self.classicalCollectionView.dataSource = self.classicalDataSource
                 }
             case .failure(let error):
                 print(error?.description ?? "")
@@ -192,14 +194,51 @@ extension HomeViewController {
             switch result {
             case .success(let output):
                 if let data = output {
-                    DispatchQueue.main.async {
-                        self.countryDataSource = SongDataSource(items: data.collections)
-                        self.countryCollectionView.dataSource = self.countryDataSource
-                    }
+                    self.countryArr = data.collections
+                    self.countryDataSource = SongDataSource(items: data.collections)
+                    self.countryCollectionView.dataSource = self.countryDataSource
                 }
             case .failure(let error):
                 print(error?.description ?? "")
             }
         }
+    }
+}
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        let newViewController = PlayerViewController(nibName: "PlayerViewController", bundle: nil)
+        var mySongs = [Song]()
+        switch collectionView {
+        case musicCollectionView:
+            if let songs = musicArr {
+                mySongs = songs
+            }
+        case audioCollectionView:
+            if let songs = audioArr {
+                mySongs = songs
+            }
+        case ambientCollectionView:
+            if let songs = ambientArr {
+                mySongs = songs
+            }
+        case rockCollectionView:
+            if let songs = rockArr {
+                mySongs = songs
+            }
+        case classicalCollectionView:
+            if let songs = classicalArr {
+                mySongs = songs
+            }
+        case countryCollectionView:
+            if let songs = countryArr {
+                mySongs = songs
+            }
+        default:
+            break
+        }
+        newViewController.songs = mySongs
+        newViewController.trackIndex = indexPath.row
+        self.present(newViewController, animated: true, completion: nil)
     }
 }

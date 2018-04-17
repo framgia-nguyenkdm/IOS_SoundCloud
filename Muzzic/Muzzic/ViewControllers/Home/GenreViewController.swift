@@ -51,8 +51,8 @@ extension GenreViewController {
                     for item in output.collections {
                         self.songs.append(item)
                     }
+                    print(self.songs.count)
                     DispatchQueue.main.async {
-                        print(self.songs.count)
                         self.myCollectionView.reloadData()
                     }
                 }
@@ -99,8 +99,8 @@ extension GenreViewController {
                         for item in output.collections {
                             self.songs.append(item)
                         }
+                         print(self.songs.count)
                         DispatchQueue.main.async {
-                            print(self.songs.count)
                             self.myCollectionView.reloadData()
                         }
                     }
@@ -144,6 +144,13 @@ extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSou
                     }
                 }
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newViewController = PlayerViewController(nibName: "PlayerViewController", bundle: nil)
+        newViewController.trackIndex = indexPath.row
+        newViewController.songs = songs
+        self.present(newViewController, animated: true, completion: nil)
     }
 }
 // MARK: - Edit Flow Layout CollectionView

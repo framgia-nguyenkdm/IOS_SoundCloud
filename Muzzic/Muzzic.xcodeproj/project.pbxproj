@@ -16,6 +16,10 @@
 		8D05634E207DFBE1002CE08D /* APIService+Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05634D207DFBE1002CE08D /* APIService+Song.swift */; };
 		8D056350207DFE9F002CE08D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D05634F207DFE9F002CE08D /* UserProfile.swift */; };
 		8D056353207E04AE002CE08D /* SongRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D056352207E04AE002CE08D /* SongRespository.swift */; };
+		8D295C6E208483F40096B67F /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D295C6D208483F40096B67F /* Shuffle.swift */; };
+		8D295C75208498F20096B67F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D295C73208498F20096B67F /* PlayerViewController.swift */; };
+		8D295C76208498F20096B67F /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D295C74208498F20096B67F /* PlayerViewController.xib */; };
+		8D295C792084A93B0096B67F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D295C782084A93B0096B67F /* UIViewController+.swift */; };
 		8D3D77E8207C4B9100B7DA69 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3D77E7207C4B9000B7DA69 /* Tabbar.storyboard */; };
 		8D3D77EA207C4C0000B7DA69 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3D77E9207C4C0000B7DA69 /* HomeTabBarController.swift */; };
 		8D3D77EC207C53BA00B7DA69 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3D77EB207C53BA00B7DA69 /* Home.storyboard */; };
@@ -50,6 +54,10 @@
 		8D05634D207DFBE1002CE08D /* APIService+Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Song.swift"; sourceTree = "<group>"; };
 		8D05634F207DFE9F002CE08D /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		8D056352207E04AE002CE08D /* SongRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRespository.swift; sourceTree = "<group>"; };
+		8D295C6D208483F40096B67F /* Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
+		8D295C73208498F20096B67F /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		8D295C74208498F20096B67F /* PlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		8D295C782084A93B0096B67F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		8D3D77E7207C4B9000B7DA69 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
 		8D3D77E9207C4C0000B7DA69 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		8D3D77EB207C53BA00B7DA69 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -112,6 +120,16 @@
 			path = Respositories;
 			sourceTree = "<group>";
 		};
+		8D295C772084992E0096B67F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				8D295C73208498F20096B67F /* PlayerViewController.swift */,
+				8D295C74208498F20096B67F /* PlayerViewController.xib */,
+			);
+			name = Player;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		8D3D77ED207C53CA00B7DA69 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +146,7 @@
 			children = (
 				8D3D77F0207C548D00B7DA69 /* Storyboards.swift */,
 				8DBC51F3207F152200C36806 /* UIimageView+.swift */,
+				8D295C782084A93B0096B67F /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -135,6 +154,7 @@
 		8D3D77EF207C541500B7DA69 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D295C772084992E0096B67F /* Player */,
 				8DE996D220843397007529C5 /* Home */,
 				8D3D77E9207C4C0000B7DA69 /* HomeTabBarController.swift */,
 				8D3D77F6207C590C00B7DA69 /* PlaylistViewController.swift */,
@@ -148,6 +168,7 @@
 				8D05634F207DFE9F002CE08D /* UserProfile.swift */,
 				8DBC51F9207F56D200C36806 /* Genres.swift */,
 				8DBC51FB207F587600C36806 /* Segues.swift */,
+				8D295C6D208483F40096B67F /* Shuffle.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -293,6 +314,11 @@
 					8DB929B8207B604000A12E40 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -321,6 +347,7 @@
 			files = (
 				8D3D77E8207C4B9100B7DA69 /* Tabbar.storyboard in Resources */,
 				8DB929C7207B604000A12E40 /* LaunchScreen.storyboard in Resources */,
+				8D295C76208498F20096B67F /* PlayerViewController.xib in Resources */,
 				8DB929C4207B604000A12E40 /* Assets.xcassets in Resources */,
 				8D3D77F3207C553700B7DA69 /* Playlist.storyboard in Resources */,
 				8D3D77EC207C53BA00B7DA69 /* Home.storyboard in Resources */,
@@ -419,10 +446,13 @@
 				8D3D77F7207C590C00B7DA69 /* PlaylistViewController.swift in Sources */,
 				8D056346207DF98A002CE08D /* APIUrls.swift in Sources */,
 				8DBC51FA207F56D200C36806 /* Genres.swift in Sources */,
+				8D295C6E208483F40096B67F /* Shuffle.swift in Sources */,
 				8D056348207DFA16002CE08D /* APIService.swift in Sources */,
 				8DBC51F6207F19D300C36806 /* GenreViewController.swift in Sources */,
 				8D05634A207DFAF6002CE08D /* APIBase.swift in Sources */,
 				8DFADE8C2080B47500179741 /* SearchViewController.swift in Sources */,
+				8D295C792084A93B0096B67F /* UIViewController+.swift in Sources */,
+				8D295C75208498F20096B67F /* PlayerViewController.swift in Sources */,
 				8D3D781F207CBD9C00B7DA69 /* SongCollectionViewCell.swift in Sources */,
 				8D3D77EA207C4C0000B7DA69 /* HomeTabBarController.swift in Sources */,
 				8D05634E207DFBE1002CE08D /* APIService+Song.swift in Sources */,
@@ -559,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6T5D3D3FXV;
 				INFOPLIST_FILE = Muzzic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = framgia.Muzzic;
@@ -574,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6T5D3D3FXV;
 				INFOPLIST_FILE = Muzzic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = framgia.Muzzic;
