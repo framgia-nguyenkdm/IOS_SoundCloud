@@ -40,7 +40,7 @@ class SongRespositoryImpl: SongRespository {
                 for item in data {
                     let object = Song(songID: item.songID,
                                       name: item.name,
-                                      image: item.imageLink,
+                                      downloadLink: item.downloadLink,
                                       singer: item.singer,
                                       genre: item.genre,
                                       imageLink: item.imageLink,
@@ -64,7 +64,7 @@ class SongRespositoryImpl: SongRespository {
                 for item in data {
                     let object = Song(songID: item.songID,
                                       name: item.name,
-                                      image: item.imageLink,
+                                      downloadLink: item.downloadLink,
                                       singer: item.singer,
                                       genre: item.genre,
                                       imageLink: item.imageLink,

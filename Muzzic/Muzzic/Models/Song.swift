@@ -11,28 +11,37 @@ import ObjectMapper
 class Song: NSObject, Mappable {
     var songID = 0
     var name = ""
-    var image = ""
+    var downloadLink = ""
     var singer = ""
     var imageLink = ""
     var genre = ""
     var stream = ""
-    init(songID: Int, name: String, image: String, singer: String, genre: String, imageLink: String, stream: String) {
+
+    init(songID: Int, name: String,
+         downloadLink: String,
+         singer: String,
+         genre: String,
+         imageLink: String,
+         stream: String) {
+
         self.songID = songID
         self.name = name
-        self.image = image
+        self.downloadLink = downloadLink
         self.singer = singer
         self.genre = genre
         self.imageLink = imageLink
         self.stream = stream
     }
+
     required init?(map: Map) {
         super.init()
         mapping(map: map)
     }
+
     func mapping(map: Map) {
         songID <- map["id"]
         name <- map["title"]
-        image <- map["user.avatar_url"]
+        downloadLink <- map["download_url"]
         genre <- map["genre"]
         stream <- map["stream_url"]
         singer <- map["user.username"]

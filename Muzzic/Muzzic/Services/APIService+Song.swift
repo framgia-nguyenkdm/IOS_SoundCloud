@@ -76,6 +76,7 @@ class GetListSongOutput: Mappable {
 class GetSongOutput: Mappable {
     var songID = 0
     var name = ""
+    var downloadLink = ""
     var imageLink = ""
     var singer = ""
     var genre = ""
@@ -94,5 +95,6 @@ class GetSongOutput: Mappable {
         genre <- map["genre"]
         stream <- map["stream_url"]
         singer <- map["user.username"]
+        downloadLink <- map["download_url"]
     }
 }

@@ -9,4 +9,5 @@
 import Foundation
 struct UserProfile {
     static let myClientID = "08f79801a998c381762ec5b15e4914d5"
+    static let songModel = "SongModel"
 }

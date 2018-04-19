@@ -8,7 +8,17 @@
 
 import Foundation
 import PKHUD
-
+// MARK: - Alert
+extension UIViewController {
+    func showAlert(title: String, message: String, handler: @escaping (() -> Void)) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        DispatchQueue.main.async {
+            self.present(alertVC, animated: true, completion: handler)
+        }
+    }
+}
 extension UIViewController {
     func showLoading() {
         DispatchQueue.main.async {

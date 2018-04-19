@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import MediaPlayer
+import CoreData
 
 class PlayerViewController: UIViewController {
     @IBOutlet private weak var songImg: UIImageView!
@@ -25,6 +26,7 @@ class PlayerViewController: UIViewController {
     fileprivate var player: AVPlayer?
     fileprivate var playerItem: AVPlayerItem?
     fileprivate var timeObserver: Any?
+    var isOffline = false
     var trackIndex = 0
     var songs = [Song]()
     var shuffleType = Shuffle.random
@@ -79,17 +81,23 @@ class PlayerViewController: UIViewController {
 // MARK: - AVPlayer config
 extension PlayerViewController {
     func playAudioWithPath(urlStr: String) {
-        if let url = URL(string: urlStr) {
-            // Check time observer and remove if needed
-            if let ob = self.timeObserver {
-                if player?.rate == 1.0 {
-                    player?.removeTimeObserver(ob)
-                    player?.pause()
-                }
+        // Check time observer and remove if needed
+        if let ob = self.timeObserver {
+            if player?.rate == 1.0 {
+                player?.removeTimeObserver(ob)
+                player?.pause()
             }
+        }
+
+        if isOffline {
+            let url = URL(fileURLWithPath: urlStr)
             playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
-
+        } else {
+            guard let url = URL(string: urlStr) else { return }
+            playerItem = AVPlayerItem(url: url)
+            player = AVPlayer(playerItem: playerItem)
+        }
             player?.play()
             configTimeSlider()
             playPauseButton.setImage(UIImage(named: "icon_pause"), for: .normal)
@@ -98,18 +106,19 @@ extension PlayerViewController {
                                                    selector: #selector(playerDidFinishPlaying(note:)),
                                                    name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                    object: player?.currentItem)
-        }
         // MARK: Observe the change of duration time
-        self.timeObserver = player?.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1),
-                                        queue: DispatchQueue.main, using: { (progressTime) in
-            if self.player?.currentItem?.status == .readyToPlay {
-                let seconds = CMTimeGetSeconds(progressTime)
-                let secondsStr = String(format: "%02d", Int(seconds.truncatingRemainder(dividingBy: 60)))
-                let minutesStr = String(format: "%02d", Int(seconds / 60))
-                self.songCurrentTimeLabel.text  = "\(minutesStr):\(secondsStr)"
+        self.timeObserver = player?
+            .addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1),
+                                                    queue: DispatchQueue.main,
+                                                    using: { (progressTime) in
+                        if self.player?.currentItem?.status == .readyToPlay {
+                            let seconds = CMTimeGetSeconds(progressTime)
+                            let secondsStr = String(format: "%02d", Int(seconds.truncatingRemainder(dividingBy: 60)))
+                            let minutesStr = String(format: "%02d", Int(seconds / 60))
+                            self.songCurrentTimeLabel.text  = "\(minutesStr):\(secondsStr)"
 
-                self.mySlider.value = Float(CMTimeGetSeconds(self.player!.currentItem!.currentTime()))
-            }
+                            self.mySlider.value = Float(CMTimeGetSeconds(self.player!.currentItem!.currentTime()))
+                        }
         })
     }
 
@@ -185,12 +194,20 @@ extension PlayerViewController {
 
     func bindUISongDetailAndPlayTrack(index: Int) {
         let currentSong = songs[index]
-        print("\(index)---\(currentSong.name)")
-        self.songNameLabel.text = currentSong.name
-        self.songSingerLabel.text = currentSong.singer
-        self.songImg.loadImgFrom(urlLink: currentSong.imageLink)
-
-        let urlStr = currentSong.stream + "?client_id=\(UserProfile.myClientID)"
+        var urlStr = ""
+        print("ID:\(currentSong.songID)---- \(index) --- \(currentSong.name)")
+        print("Download: \(currentSong.downloadLink)")
+        if isOffline {
+            self.songNameLabel.text = currentSong.name
+            self.songSingerLabel.text = currentSong.singer
+            self.songImg.image = UIImage(contentsOfFile: currentSong.imageLink)
+            urlStr = currentSong.stream
+        } else {
+            self.songNameLabel.text = currentSong.name
+            self.songSingerLabel.text = currentSong.singer
+            self.songImg.loadImgFrom(urlLink: currentSong.imageLink)
+            urlStr = currentSong.stream + "?client_id=\(UserProfile.myClientID)"
+        }
         playAudioWithPath(urlStr: urlStr)
         configNotification(trackIndex: index)
     }
@@ -286,7 +303,47 @@ extension PlayerViewController {
     }
 
     func downloadSong() {
-
+        self.showLoading()
+        let currentSong = songs[trackIndex]
+        if !currentSong.downloadLink.isEmpty {
+            DownloadManager.sharedInstance.downLoadAllData(imgURL: currentSong.imageLink,
+                                                           audioURL: currentSong.downloadLink,
+                                                           fileName: currentSong.songID.description,
+                                                           completion: { (imgPath, audioPath, downloadState) in
+                                switch downloadState {
+                                case .complete:
+                                    DispatchQueue.main.async {
+                                        DBManager.sharedInstance.insertSong(currentSong: currentSong,
+                                                                            imgPath: imgPath,
+                                                                            songPath: audioPath,
+                                                                            completion: { (isInserted) in
+                                if isInserted {
+                                    self.hideLoading()
+                                    self.showAlert(title: "Completed",
+                                                    message: "Successfully download", handler: {})
+                                } else {
+                                    self.hideLoading()
+                                    DownloadManager.sharedInstance.deleteData(name: currentSong.songID.description)
+                                    self.showAlert(title: "Failed",
+                                                message: "Something wrong with your download", handler: {})
+                                }
+                                })
+                                }
+                                case .error:
+                                    self.hideLoading()
+                                    self.showAlert(title: "Error",
+                                                   message: "Can not download the file", handler: {})
+                                case .existFile:
+                                    self.hideLoading()
+                                    self.showAlert(title: "Warning",
+                                                   message: "Your download has been exist", handler: {})
+                                }
+            })
+        } else {
+            self.hideLoading()
+            self.showAlert(title: "Error",
+                           message: "This track do not have any download file ", handler: {})
+        }
     }
 
     func dismissViewPlayer() {
