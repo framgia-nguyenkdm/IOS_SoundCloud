@@ -20,6 +20,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet private weak var songEndTimeLabel: UILabel!
     @IBOutlet private weak var mySlider: UISlider!
 
+    @IBOutlet private weak var downloadButton: UIButton!
     @IBOutlet private weak var shuffleButton: UIButton!
     @IBOutlet private weak var playPauseButton: UIButton!
 
@@ -88,7 +89,7 @@ extension PlayerViewController {
                 player?.pause()
             }
         }
-
+        self.showLoading()
         if isOffline {
             let url = URL(fileURLWithPath: urlStr)
             playerItem = AVPlayerItem(url: url)
@@ -98,20 +99,22 @@ extension PlayerViewController {
             playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
         }
-            player?.play()
-            configTimeSlider()
-            playPauseButton.setImage(UIImage(named: "icon_pause"), for: .normal)
 
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(playerDidFinishPlaying(note:)),
-                                                   name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                                   object: player?.currentItem)
+        player?.play()
+        configTimeSlider()
+        playPauseButton.setImage(UIImage(named: "icon_pause"), for: .normal)
+
+        NotificationCenter.default.addObserver(self,
+                                            selector: #selector(playerDidFinishPlaying(note:)),
+                                            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                            object: player?.currentItem)
         // MARK: Observe the change of duration time
         self.timeObserver = player?
             .addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1),
                                                     queue: DispatchQueue.main,
                                                     using: { (progressTime) in
                         if self.player?.currentItem?.status == .readyToPlay {
+                            self.hideLoading()
                             let seconds = CMTimeGetSeconds(progressTime)
                             let secondsStr = String(format: "%02d", Int(seconds.truncatingRemainder(dividingBy: 60)))
                             let minutesStr = String(format: "%02d", Int(seconds / 60))
@@ -202,11 +205,13 @@ extension PlayerViewController {
             self.songSingerLabel.text = currentSong.singer
             self.songImg.image = UIImage(contentsOfFile: currentSong.imageLink)
             urlStr = currentSong.stream
+            self.downloadButton.isEnabled = false
         } else {
             self.songNameLabel.text = currentSong.name
             self.songSingerLabel.text = currentSong.singer
-            self.songImg.loadImgFrom(urlLink: currentSong.imageLink)
+            self.songImg.setImageFromURL(urlLink: currentSong.imageLink)
             urlStr = currentSong.stream + "?client_id=\(UserProfile.myClientID)"
+            self.downloadButton.isEnabled = true
         }
         playAudioWithPath(urlStr: urlStr)
         configNotification(trackIndex: index)

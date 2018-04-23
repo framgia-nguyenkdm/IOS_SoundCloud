@@ -12,7 +12,6 @@ class GenreViewController: UIViewController {
     @IBOutlet weak var myCollectionView: UICollectionView!
 
     fileprivate var activityIndicator: LoadMoreActivityIndicator!
-    var dataSource: SongDataSource!
     var songs = [Song]()
     var nextPageURL = ""
     var genreString = ""
@@ -49,6 +48,9 @@ extension GenreViewController {
                         self.nextPageURL = nextPageLink
                     }
                     for item in output.collections {
+                        if !item.downloadLink.isEmpty {
+                            print("\(String(describing: output.collections.index(of: item)))---\(item.name)")
+                        }
                         self.songs.append(item)
                     }
                     print(self.songs.count)
@@ -121,12 +123,12 @@ extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = myCollectionView
-            .dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? SongCollectionViewCell
-        cell?.songImg.loadImgFrom(urlLink: songs[indexPath.row].imageLink)
-        cell?.songNameLabel.text = songs[indexPath.row].name
-        cell?.singerLabel.text = songs[indexPath.row].singer
-        return cell!
+        guard let cell = myCollectionView
+            .dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? SongCollectionViewCell else {
+                return UICollectionViewCell()
+        }
+        cell.setContentForCell(song: songs[indexPath.row])
+        return cell
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

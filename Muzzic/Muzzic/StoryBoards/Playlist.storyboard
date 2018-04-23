@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,31 +22,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_blur" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-I4-8aV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="9ak-wl-pR2"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ema-Kf-0oN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5S-qR-8cB">
-                                        <rect key="frame" x="80" y="20" width="216.5" height="63.5"/>
-                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="V5S-qR-8cB" firstAttribute="centerX" secondItem="ema-Kf-0oN" secondAttribute="centerX" id="MXh-V5-fpM"/>
-                                    <constraint firstItem="V5S-qR-8cB" firstAttribute="top" secondItem="ema-Kf-0oN" secondAttribute="top" constant="20" id="She-Ly-dnC"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O8Z-tO-B0u">
-                                <rect key="frame" x="0.0" y="214" width="375" height="453"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="7Uz-jv-zEz" userLabel="Table Header View">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_blur" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-I4-8aV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ema-Kf-0oN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5S-qR-8cB">
+                                                    <rect key="frame" x="80" y="20" width="216.5" height="63.5"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="V5S-qR-8cB" firstAttribute="top" secondItem="ema-Kf-0oN" secondAttribute="top" constant="20" id="7Lz-BJ-opu"/>
+                                                <constraint firstItem="V5S-qR-8cB" firstAttribute="centerX" secondItem="ema-Kf-0oN" secondAttribute="centerX" id="MMs-au-0Kv"/>
+                                                <constraint firstAttribute="height" constant="160" id="TBR-DK-Rrn"/>
+                                            </constraints>
+                                        </view>
+                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gwQ-lD-P5A">
+                                            <rect key="frame" x="0.0" y="160" width="375" height="60"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="gwQ-lD-P5A" firstAttribute="leading" secondItem="7Uz-jv-zEz" secondAttribute="leading" id="2sc-AY-mMM"/>
+                                        <constraint firstItem="Toi-I4-8aV" firstAttribute="top" secondItem="7Uz-jv-zEz" secondAttribute="top" id="EDH-RA-TSB"/>
+                                        <constraint firstItem="ema-Kf-0oN" firstAttribute="width" secondItem="Toi-I4-8aV" secondAttribute="width" id="Ess-Z5-TZr"/>
+                                        <constraint firstAttribute="trailing" secondItem="gwQ-lD-P5A" secondAttribute="trailing" id="HMT-Nt-WhF"/>
+                                        <constraint firstItem="ema-Kf-0oN" firstAttribute="height" secondItem="Toi-I4-8aV" secondAttribute="height" id="MZv-CM-Z8j"/>
+                                        <constraint firstAttribute="bottom" secondItem="gwQ-lD-P5A" secondAttribute="bottom" id="Sat-ZQ-4aw"/>
+                                        <constraint firstAttribute="trailing" secondItem="Toi-I4-8aV" secondAttribute="trailing" id="Z7Q-VX-MCp"/>
+                                        <constraint firstItem="gwQ-lD-P5A" firstAttribute="top" secondItem="Toi-I4-8aV" secondAttribute="bottom" id="hTr-8O-sMJ"/>
+                                        <constraint firstItem="Toi-I4-8aV" firstAttribute="leading" secondItem="7Uz-jv-zEz" secondAttribute="leading" id="r0V-rY-jy2"/>
+                                        <constraint firstItem="ema-Kf-0oN" firstAttribute="centerY" secondItem="Toi-I4-8aV" secondAttribute="centerY" id="suF-jm-Dwo"/>
+                                        <constraint firstItem="ema-Kf-0oN" firstAttribute="centerX" secondItem="Toi-I4-8aV" secondAttribute="centerX" id="xiz-eb-HJe"/>
+                                    </constraints>
+                                </view>
                                 <connections>
                                     <outlet property="dataSource" destination="EQt-u5-quw" id="NYE-oh-Iv3"/>
                                     <outlet property="delegate" destination="EQt-u5-quw" id="O5l-Jt-j8r"/>
@@ -56,22 +77,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ema-Kf-0oN" firstAttribute="width" secondItem="Toi-I4-8aV" secondAttribute="width" id="2PF-OW-f11"/>
-                            <constraint firstItem="ema-Kf-0oN" firstAttribute="centerX" secondItem="Toi-I4-8aV" secondAttribute="centerX" id="DIp-EO-sYw"/>
                             <constraint firstItem="ADl-5f-HLx" firstAttribute="trailing" secondItem="O8Z-tO-B0u" secondAttribute="trailing" id="Esg-DY-Dan"/>
-                            <constraint firstItem="ema-Kf-0oN" firstAttribute="height" secondItem="Toi-I4-8aV" secondAttribute="height" id="Fgv-M0-Jtv"/>
-                            <constraint firstItem="O8Z-tO-B0u" firstAttribute="top" secondItem="Toi-I4-8aV" secondAttribute="bottom" id="G4V-Db-VWb"/>
-                            <constraint firstItem="ema-Kf-0oN" firstAttribute="centerY" secondItem="Toi-I4-8aV" secondAttribute="centerY" id="GCo-72-uGd"/>
-                            <constraint firstItem="Toi-I4-8aV" firstAttribute="top" secondItem="ADl-5f-HLx" secondAttribute="top" id="P6V-ca-63u"/>
+                            <constraint firstItem="O8Z-tO-B0u" firstAttribute="top" secondItem="ADl-5f-HLx" secondAttribute="top" id="SkG-em-Tqh"/>
                             <constraint firstItem="ADl-5f-HLx" firstAttribute="bottom" secondItem="O8Z-tO-B0u" secondAttribute="bottom" id="WLc-5q-JXy"/>
-                            <constraint firstItem="ADl-5f-HLx" firstAttribute="trailing" secondItem="Toi-I4-8aV" secondAttribute="trailing" id="kfz-yc-2GM"/>
                             <constraint firstItem="O8Z-tO-B0u" firstAttribute="leading" secondItem="ADl-5f-HLx" secondAttribute="leading" id="o3Q-6g-Qjo"/>
-                            <constraint firstItem="Toi-I4-8aV" firstAttribute="leading" secondItem="ADl-5f-HLx" secondAttribute="leading" id="uNo-WY-mgH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ADl-5f-HLx"/>
                     </view>
                     <navigationItem key="navigationItem" id="yPc-oE-3Gg"/>
                     <connections>
+                        <outlet property="searchBar" destination="gwQ-lD-P5A" id="lI8-Ya-4Mi"/>
                         <outlet property="songTableView" destination="O8Z-tO-B0u" id="1IR-Ta-JwP"/>
                     </connections>
                 </viewController>

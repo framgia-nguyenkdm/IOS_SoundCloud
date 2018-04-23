@@ -19,4 +19,10 @@ class SongCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    func setContentForCell(song: Song) {
+        songImg.setImageFromURL(urlLink: song.imageLink)
+        songNameLabel.text = song.name
+        singerLabel.text = song.singer
+    }
+
 }

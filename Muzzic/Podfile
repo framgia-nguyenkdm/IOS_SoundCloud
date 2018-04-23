@@ -9,4 +9,5 @@ pod 'SwiftLint'
 pod 'ObjectMapper'
 pod 'Alamofire'
 pod 'PKHUD'
+pod 'Kingfisher'
 end

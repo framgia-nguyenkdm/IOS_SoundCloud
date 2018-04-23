@@ -38,12 +38,13 @@ class SearchViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? SongCustomViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                       for: indexPath) as? SongCustomViewCell else {
+            return UITableViewCell()
+        }
+        cell.setContentCell(song: songs[indexPath.row])
 
-        cell?.nameLabel?.text = songs[indexPath.row].name
-        cell?.singerLabel.text = songs[indexPath.row].singer
-
-        return cell!
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

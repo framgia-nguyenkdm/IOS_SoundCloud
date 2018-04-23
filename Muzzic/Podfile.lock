@@ -1,21 +1,24 @@
 PODS:
   - Alamofire (4.7.1)
+  - Kingfisher (4.6.4)
   - ObjectMapper (3.1.0)
   - PKHUD (5.0.0)
   - SwiftLint (0.25.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher
   - ObjectMapper
   - PKHUD
   - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: db4de7788906c13701cafc1e0ed7f6d292773692
+PODFILE CHECKSUM: af181eccbc0dc3989427c4990c1cfd71b9916089
 
 COCOAPODS: 1.4.0

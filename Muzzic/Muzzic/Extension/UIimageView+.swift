@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 extension UIImageView {
     func loadImgFrom(urlLink: String) {
         self.contentMode = .scaleAspectFit
@@ -21,5 +22,11 @@ extension UIImageView {
                 }
                 }.resume()
         }
+    }
+    func setImageFromURL(urlLink: String) {
+        guard let url = URL(string: urlLink)
+        else { return }
+        let rs = ImageResource(downloadURL: url)
+        self.kf.setImage(with: rs)
     }
 }
