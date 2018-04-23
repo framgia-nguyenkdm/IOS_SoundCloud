@@ -23,6 +23,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet private weak var downloadButton: UIButton!
     @IBOutlet private weak var shuffleButton: UIButton!
     @IBOutlet private weak var playPauseButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var previousButton: UIButton!
 
     fileprivate var player: AVPlayer?
     fileprivate var playerItem: AVPlayerItem?
@@ -205,13 +207,15 @@ extension PlayerViewController {
             self.songSingerLabel.text = currentSong.singer
             self.songImg.image = UIImage(contentsOfFile: currentSong.imageLink)
             urlStr = currentSong.stream
-            self.downloadButton.isEnabled = false
+            self.downloadButton.isHidden = true
+            self.nextButton.isEnabled = !(songs.count == 1)
+            self.previousButton.isEnabled = !(songs.count == 1)
         } else {
             self.songNameLabel.text = currentSong.name
             self.songSingerLabel.text = currentSong.singer
             self.songImg.setImageFromURL(urlLink: currentSong.imageLink)
             urlStr = currentSong.stream + "?client_id=\(UserProfile.myClientID)"
-            self.downloadButton.isEnabled = true
+            self.downloadButton.isHidden = false
         }
         playAudioWithPath(urlStr: urlStr)
         configNotification(trackIndex: index)

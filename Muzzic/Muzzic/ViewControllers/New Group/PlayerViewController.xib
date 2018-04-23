@@ -21,7 +21,9 @@
             <connections>
                 <outlet property="downloadButton" destination="hkB-yM-bkc" id="Bkl-Di-5IC"/>
                 <outlet property="mySlider" destination="Lxg-tY-NMc" id="fAg-7w-tYv"/>
+                <outlet property="nextButton" destination="eut-Jg-88q" id="sfm-eP-ihr"/>
                 <outlet property="playPauseButton" destination="WRp-Oy-QCp" id="5Eb-8Y-AEk"/>
+                <outlet property="previousButton" destination="lKP-vo-rRw" id="wvu-F6-r3G"/>
                 <outlet property="shuffleButton" destination="ufp-kY-hvA" id="6aO-fI-Nqv"/>
                 <outlet property="songCurrentTimeLabel" destination="xyj-bM-6On" id="vVN-XH-qOY"/>
                 <outlet property="songEndTimeLabel" destination="jix-T2-mPJ" id="t7W-Jk-RXo"/>
